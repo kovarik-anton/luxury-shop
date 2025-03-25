@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { getProductFilteredReviews } from "@/actions/review";
 import ReviewsFilters from "./filters";
@@ -44,24 +44,20 @@ export default function ProductReviews({
 
   const [page, setPage] = useState<number>(2);
 
-  const handleGetReviews = useCallback(async () => {
-    const { reviews, count } = await getProductFilteredReviews(
-      productId,
-      ratingFilter,
-      sort,
-      page
-    );
-    setData(reviews);
-    setCount(count);
-  }, [page, sort, productId, ratingFilter]);
-
   useEffect(() => {
-    page === 1 ? handleGetReviews() : setPage(1);
-  }, [ratingFilter, sort, handleGetReviews]);
+    async function handleGetReviews() {
+      const { reviews, count } = await getProductFilteredReviews(
+        productId,
+        ratingFilter,
+        sort,
+        page
+      );
+      setData(reviews);
+      setCount(count);
+    }
 
-  useEffect(() => {
     handleGetReviews();
-  }, [page, handleGetReviews]);
+  }, [ratingFilter, sort, page, productId]);
 
   return (
     <div id="reviews" className="pt-6">

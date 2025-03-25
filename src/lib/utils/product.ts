@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 import { db } from "../db";
 import slugify from "slugify";
 import { CartProductType } from "@/types/ui";
-import { ProductInsert } from "@/types";
 import { Product_History_Size } from "@/constants";
 
 export async function generateUniqueSlug({
@@ -37,38 +36,38 @@ export async function generateUniqueSlug({
   return slug;
 }
 
-export function getVariantData(product: ProductInsert, variantSlug: string) {
-  return {
-    variantName: product.variantName,
-    variantDescription: product.variantDescription,
-    slug: variantSlug,
-    variantImage: product.variantImage,
-    sku: product.sku,
-    weight: product.weight,
-    isSale: product.isSale,
-    saleEndDate: product.saleEndDate,
-    images: {
-      create: product.images.map((img) => ({
-        url: img.url,
-      })),
-    },
-    color: product.color,
-    sizes: {
-      create: product.sizes.map((size) => ({
-        size: size.size,
-        price: size.price,
-        stock: size.stock,
-        discount: size.discount,
-      })),
-    },
-    specs: {
-      create: product.variant_specs.map((spec) => ({
-        name: spec.name,
-        value: spec.value,
-      })),
-    },
-  };
-}
+// export function getVariantData(product: ProductInsert, variantSlug: string) {
+//   return {
+//     variantName: product.variantName,
+//     variantDescription: product.variantDescription,
+//     slug: variantSlug,
+//     variantImage: product.variantImage,
+//     sku: product.sku,
+//     weight: product.weight,
+//     isSale: product.isSale,
+//     saleEndDate: product.saleEndDate,
+//     images: {
+//       create: product.images.map((img) => ({
+//         url: img.url,
+//       })),
+//     },
+//     color: product.color,
+//     sizes: {
+//       create: product.sizes.map((size) => ({
+//         size: size.size,
+//         price: size.price,
+//         stock: size.stock,
+//         discount: size.discount,
+//       })),
+//     },
+//     specs: {
+//       create: product.variant_specs.map((spec) => ({
+//         name: spec.name,
+//         value: spec.value,
+//       })),
+//     },
+//   };
+// }
 
 export function updateProductHistory(variantId: string) {
   let productHistory: string[] = [];
