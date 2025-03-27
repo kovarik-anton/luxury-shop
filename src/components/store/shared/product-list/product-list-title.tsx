@@ -11,7 +11,7 @@ export default function Title({ title, link, arrow }: Props) {
   if (link) {
     return (
       <Link href={link} className="h-12">
-        <h3 className="text-main-primary text-xl font-bold">
+        <h3 className="text-main-primary text-xl font-bold p-2">
           {title}&nbsp;
           {arrow && <ChevronRight className="w-3 inline-block" />}
         </h3>
@@ -19,7 +19,7 @@ export default function Title({ title, link, arrow }: Props) {
     );
   } else {
     return (
-      <h3 className="text-main-primary text-xl font-bold">
+      <h3 className="text-main-primary text-xl font-bold p-2">
         {title}&nbsp;
         {arrow && <ChevronRight className="w-3 inline-block" />}
       </h3>

@@ -38,6 +38,10 @@ export default function Search() {
   };
 
   useEffect(() => {
+    setSuggestions([]);
+  }, [pathname]);
+
+  useEffect(() => {
     async function fetchData() {
       if (pathname === "/browse") return;
       if (debouncedValue.length >= 2) {
@@ -53,10 +57,10 @@ export default function Search() {
     }
 
     fetchData();
-  }, [debouncedValue, pathname]);
+  }, [debouncedValue]);
 
   return (
-    <div ref={ref} className="relative lg:w-full flex-1">
+    <div ref={ref} className="relative lg:w-full flex-1 mr-3">
       <form
         onSubmit={handleSubmit}
         className="h-10 rounded-3xl bg-white relative border-none flex"

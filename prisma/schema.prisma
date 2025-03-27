@@ -74,21 +74,9 @@ model Store {
 
   products      Product[]      @relation("StoreToProduct")
   shippingServices      ShippingService[]      @relation("ShippingServiceToStore")
-  offers      PageOffer[]      @relation("PageOfferToStore")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt
-}
-
-model PageOffer {
-  id                                  String      @id @default(uuid())
-  image String
-
-  offerTagId String?
-  offerTag   OfferTag? @relation("PageOfferToOfferTag", fields: [offerTagId], references: [id])
-
-  storeId String
-  store   Store  @relation("PageOfferToStore", fields: [storeId], references: [id])
 }
 
 model ShippingService {
@@ -212,9 +200,10 @@ model OfferTag {
   id   String @id @default(uuid())
   name String @unique
   url  String @unique
+  image    String
+  featured Boolean @default(false)
 
   products Product[] @relation("OfferTagToProduct")
-  offers      PageOffer[]      @relation("PageOfferToOfferTag")
 
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now()) @updatedAt

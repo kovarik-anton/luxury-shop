@@ -9,10 +9,10 @@ interface Props {
   queries: FiltersQueryType;
 }
 
-export default async function ProductFilters({ queries }: Props) {
+export default function ProductFilters({ queries }: Props) {
   const key = new URLSearchParams(queries).toString();
   return (
-    <section className="h-[840px] transition-transform overflow-auto pr-6 pb-2.5 flex-none basis-[196px] sticky top-0 overflow-x-hidden scrollbar">
+    <section className="h-full transition-transform overflow-auto pr-6 pb-2.5 flex-none basis-[196px] sticky top-0 overflow-x-hidden scrollbar">
       <FiltersHeader queries={queries} />
       <section className="border-t w-44">
         <CategoryFilter />

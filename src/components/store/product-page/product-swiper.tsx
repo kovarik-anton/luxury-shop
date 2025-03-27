@@ -20,9 +20,9 @@ export default function ProductSwiper({
   if (images?.length < 1) return;
 
   return (
-    <div className="relative">
-      <div className="relative w-full flex flex-col-reverse md:flex-row xl:flex-col-reverse 2xl:flex-row gap-2">
-        <ul className="flex flex-wrap md:flex-col xl:flex-row 2xl:flex-col gap-3">
+    <div className="relative mx-4">
+      <div className="relative w-full flex flex-col-reverse md:flex-row lgxl:flex-col-reverse 2xl:flex-row gap-2">
+        <ul className="flex flex-wrap md:flex-col lgxl:flex-row 2xl:flex-col gap-3">
           {images.map((img) => (
             <li
               key={img.url}

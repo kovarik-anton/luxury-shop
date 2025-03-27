@@ -20,13 +20,16 @@ export default function ProductCard({ product }: Props) {
 
   return (
     <section>
-      <div className="group w-48 sm:w-[225px] relative transition-all duration-75 bg-white ease-in-out p-4 rounded-t-3xl border border-transparent hover:shadow-xl hover:border-border">
+      <div className="group w-56 relative transition-all duration-75 bg-white ease-in-out p-4 rounded-t-3xl border border-transparent hover:shadow-xl hover:border-border">
         <div className="relative w-full h-full">
           <Link
             href={`/product/${slug}/${variantSlug}`}
             className="w-full relative inline-block overflow-hidden"
           >
-            <ProductCardImageSwiper images={images} />
+            <ProductCardImageSwiper
+              images={images}
+              name={`${name} · ${variantName}`}
+            />
             <p className="text-sm text-main-primary h-[18px] overflow-hidden overflow-ellipsis line-clamp-1">
               {name} · {variantName}
             </p>
@@ -43,13 +46,6 @@ export default function ProductCard({ product }: Props) {
           <div className="flex flex-items gap-x-1">
             <Button>
               <Link href={`/product/${slug}/${variantSlug}`}>Add to cart</Link>
-            </Button>
-            <Button
-              variant="black"
-              size="icon"
-              // onClick={() => handleAddToWishlist()}
-            >
-              <Heart className="w-5" />
             </Button>
           </div>
         </div>

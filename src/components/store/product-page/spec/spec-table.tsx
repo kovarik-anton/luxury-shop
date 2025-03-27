@@ -9,7 +9,7 @@ interface Props {
 export default function SpecTable({ data, noTopBorder }: Props) {
   return (
     <ul
-      className={cn("border grid grid-cols-2", {
+      className={cn("border grid grid-cols-1", {
         "border-t-0": noTopBorder,
       })}
     >

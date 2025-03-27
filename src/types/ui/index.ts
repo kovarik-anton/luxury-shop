@@ -40,6 +40,13 @@ export type ProductType = {
   variantImages: VariantImageType[];
 };
 
+export type StoreCardType = {
+  name: string;
+  url: string;
+  image: string;
+  internalUrl: string;
+};
+
 export type CartProductType = {
   cartItemId?: string;
   productId: string;
@@ -190,4 +197,9 @@ export type Spec = {
 export type Category = {
   name: string;
   url: string;
+};
+
+export type Pagination = {
+  page: number;
+  pageSize: number;
 };

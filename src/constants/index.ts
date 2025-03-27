@@ -12,3 +12,5 @@ export const Browse_Results_Size = 20;
 export const Browse_Filter_Default_Size = 1;
 export const Home_Page_Products_Size = 24;
 export const Product_History_Size = 100;
+export const Stores_HomePage_Size = 14;
+export const Stores_StorePage_Size = 35;

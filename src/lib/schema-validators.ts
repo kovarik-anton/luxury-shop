@@ -68,26 +68,33 @@ export const subcategoryFormSchema = z.object({
 export const offerTagFormSchema = z.object({
   name: z
     .string({
-      required_error: "Category name is required.",
-      invalid_type_error: "Category nale must be a string.",
+      required_error: "Offer name is required.",
+      invalid_type_error: "Offer nale must be a string.",
     })
-    .min(2, { message: "Category name must be at least 2 characters long." })
-    .max(50, { message: "Category name cannot exceed 50 characters." })
+    .min(2, { message: "Offer name must be at least 2 characters long." })
+    .max(50, { message: "Offer name cannot exceed 50 characters." })
     .regex(/^[a-zA-Z0-9\s&$.%,']+$/, {
       message:
-        "Only letters, numbers, and spaces are allowed in the category name.",
+        "Only letters, numbers, and spaces are allowed in the Offer name.",
     }),
   url: z
     .string({
-      required_error: "Category url is required",
-      invalid_type_error: "Category url must be a string",
+      required_error: "Offer url is required",
+      invalid_type_error: "Offer url must be a string",
     })
-    .min(2, { message: "Category url must be at least 2 characters long." })
-    .max(50, { message: "Category url cannot exceed 50 characters." })
+    .min(2, { message: "Offer url must be at least 2 characters long." })
+    .max(50, { message: "Offer url cannot exceed 50 characters." })
     .regex(/^(?!.*(?:[-_ ]){2,})[a-zA-Z0-9_-]+$/, {
       message:
-        "Only letters, numbers, hyphen, and underscore are allowed in the category url, and consecutive occurrences of hyphens, underscores, or spaces are not permitted.",
+        "Only letters, numbers, hyphen, and underscore are allowed in the Offer url, and consecutive occurrences of hyphens, underscores, or spaces are not permitted.",
     }),
+  image: z
+    .string({
+      required_error: "Offer image is required",
+      invalid_type_error: "Offer image must be a string",
+    })
+    .min(1, "Choose a Offer image."),
+  featured: z.boolean().default(false),
 });
 
 export const reviewFormSchema = z.object({
@@ -174,4 +181,37 @@ export const couponFormSchema = z.object({
       invalid_type_error: "Coupon must be a string",
     })
     .min(2, "Coupon must be atleast 2 characters."),
+});
+
+export const contactUsFormSchema = z.object({
+  name: z
+    .string({
+      required_error: "Name name is required.",
+      invalid_type_error: "Name name must be a string.",
+    })
+    .min(2, { message: "Name must be at least 2 characters long." })
+    .max(50, { message: "Name cannot exceed 50 characters." })
+    .regex(/^[a-zA-Z0-9\s]+$/, {
+      message: "Only letters, numbers, and spaces are allowed in the name.",
+    }),
+  email: z
+    .string({
+      required_error: "Email is required.",
+      invalid_type_error: "Email must be a string.",
+    })
+    .min(2, { message: "Email must be at least 2 characters long." })
+    .max(50, { message: "Email cannot exceed 50 characters." })
+    .regex(/^[a-zA-Z0-9\s]+$/, {
+      message: "Only letters, numbers, and spaces are allowed in the email.",
+    }),
+  message: z
+    .string({
+      required_error: "Message is required.",
+      invalid_type_error: "Message must be a string.",
+    })
+    .min(10, { message: "Message must be at least 2 characters long." })
+    .max(1000, { message: "Message cannot exceed 50 characters." })
+    .regex(/^[a-zA-Z0-9\s]+$/, {
+      message: "Only letters, numbers, and spaces are allowed in the message.",
+    }),
 });

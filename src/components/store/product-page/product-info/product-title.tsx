@@ -5,7 +5,7 @@ interface Props {
 
 export function ProductTitle({ name, variantName }: Props) {
   return (
-    <h1 className="text-main-primary inline font-bold leading-5 capitalize">
+    <h1 className="text-main-primary inline font-bold leading-5 capitalize mt-2">
       {name} · {variantName}
     </h1>
   );

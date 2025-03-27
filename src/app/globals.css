@@ -303,7 +303,7 @@
   right: -1rem !important;
 }
 
-.swiper {
+/* .swiper {
   width: 100% !important;
   max-width: 100% !important;
   overflow: hidden !important;
@@ -311,7 +311,7 @@
 
 .swiper-slide {
   width: auto !important;
-}
+} */
 
 .card {
   --accent-color: #fd384f;

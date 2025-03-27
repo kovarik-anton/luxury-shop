@@ -91,18 +91,21 @@ export async function getOfferTagsFilter(take: number) {
 }
 
 export async function getMainPageOffers() {
-  const offers = await db.pageOffer.findMany({
+  const offers = await db.offerTag.findMany({
     select: {
       image: true,
-      offerTag: {
-        select: {
-          url: true,
-        },
-      },
+      url: true,
+      id: true,
+      name: true,
+    },
+    where: {
+      featured: true,
     },
   });
   return offers.map((offer) => ({
-    link: `/browse?offer=${offer.offerTag?.url}`,
+    id: offer.id,
+    link: `/browse?offer=${offer.url}`,
     image: offer.image,
+    name: offer.name,
   }));
 }

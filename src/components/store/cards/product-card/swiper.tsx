@@ -7,9 +7,10 @@ import { useEffect, useRef } from "react";
 
 interface Props {
   images: { url: string }[];
+  name: string;
 }
 
-export default function ProductCardImageSwiper({ images }: Props) {
+export default function ProductCardImageSwiper({ images, name }: Props) {
   const swiperRef = useRef<any>(null);
   useEffect(() => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -30,10 +31,10 @@ export default function ProductCardImageSwiper({ images }: Props) {
           <SwiperSlide key={index}>
             <Image
               src={img.url}
-              alt=""
+              alt={name}
               width={400}
               height={400}
-              className="block object-cover h-[200px] w-48 sm:w-52"
+              className="block object-cover h-[200px] w-56"
             />
           </SwiperSlide>
         ))}

@@ -9,6 +9,17 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        smsmmd: "672px",
+        smmd: "704px",
+        mdmdlg: "832px",
+        mdlg: "896px",
+        mdlglg: "960px",
+        lgxl: "1152px",
+        lgxlxl: "1214px",
+        xl2xl: "1408px",
+        max: "1600px",
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

@@ -33,6 +33,7 @@ export default function CategoryCard({ category }: Props) {
                 height={195}
                 className="w-[180px] h-[150px] object-cover rounded-md hover:opacity-80"
               />
+              <h4 className="text-center text-slate-600">{sub.name}</h4>
             </Link>
           </li>
         ))}
