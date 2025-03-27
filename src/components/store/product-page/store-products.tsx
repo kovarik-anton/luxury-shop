@@ -1,5 +1,5 @@
 import { getProducts } from "@/actions/product";
-import ProductList from "../shared/product-list/product-list";
+import ProductList from "../shared/product-list";
 
 export default async function StoreProducts() {
   const storeUrl = "store"; // TODO

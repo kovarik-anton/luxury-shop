@@ -1,7 +1,6 @@
 import Link from "next/link";
-import UserMenu from "./user-menu/user-menu";
-import Cart from "./cart";
 import Search from "./search/search";
+import Navigation from "./navigation";
 
 export default function Header() {
   return (
@@ -12,16 +11,14 @@ export default function Header() {
             <Link href="/">
               <p className="font-extrabold text-3xl font-mono">LuxuryShop</p>
             </Link>
-            <div className="flex lg:hidden">
-              <UserMenu />
-              <Cart />
+            <div className="flex lg:hidden mr-3">
+              <Navigation />
             </div>
           </div>
           <Search />
         </div>
-        <div className="hidden lg:flex w-full lg:w-fit lg:mt-2 justify-end mt-1.5 pl-6">
-          <UserMenu />
-          <Cart />
+        <div className="hidden lg:flex w-full lg:w-fit lg:mt-2 justify-end pl-6 items-center">
+          <Navigation />
         </div>
       </div>
     </section>

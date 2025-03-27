@@ -1,20 +1,26 @@
-import ProductCard from "../../cards/product-card/product-card";
-import { ProductType } from "@/types/ui";
 import { cn } from "@/lib/utils/utils";
-import Title from "./product-list-title";
+import { ReactNode } from "react";
+import Title from "./list-title";
 
-interface Props {
-  products: ProductType[];
+interface Props<T> {
+  data: T[];
   title?: string;
   link?: string;
   arrow?: boolean;
+  render: (item: T) => ReactNode;
 }
 
-export default function ProductList({ products, title, link, arrow }: Props) {
+export default function List<T>({
+  data,
+  title,
+  link,
+  arrow,
+  render,
+}: Props<T>) {
   return (
     <section className="relative w-full bg-white">
       {title && <Title arrow={arrow} title={title} link={link} />}
-      {products.length > 0 ? (
+      {data.length > 0 ? (
         <ul
           className={cn(
             "grid grid-cols-2 smmd:grid-cols-3 mdlglg:grid-cols-4 lgxlxl:grid-cols-5 xl2xl:grid-cols-6 max:grid-cols-7 flex-wrap w-full sm:mx-2",
@@ -23,14 +29,10 @@ export default function ProductList({ products, title, link, arrow }: Props) {
             }
           )}
         >
-          {products.map((product) => (
-            <li key={product.id}>
-              <ProductCard product={product} />
-            </li>
-          ))}
+          {data.map(render)}
         </ul>
       ) : (
-        "No Products."
+        "No Items."
       )}
     </section>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { getProducts } from "@/actions/product";
 import ProductCard from "../cards/product-card/product-card";
 import { Home_Page_Products_Size } from "@/constants";
-import ProductList from "../shared/product-list/product-list";
+import ProductList from "../shared/product-list";
 
 export default async function HomeProducts() {
   const { products } = await getProducts({}, "", 1, Home_Page_Products_Size);

@@ -2,7 +2,7 @@ import React from "react";
 
 import { getProducts } from "@/actions/product";
 import { Separator } from "@/components/ui/separator";
-import ProductList from "../shared/product-list/product-list";
+import ProductList from "../shared/product-list";
 
 interface Props {
   categoryUrl: string;
